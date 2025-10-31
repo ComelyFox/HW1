@@ -23,21 +23,21 @@ void main() {
 
     // ====== Задание №2 ======
     List<Student> listOfStudents = Arrays.asList(
-            new Student("Фомин", "Егор", "15-ВМ", Arrays.asList(
+            new Student("Фомин", "Егор", Arrays.asList(
                     new Book("Диктатор", "Сергей Снегов", 1996, 764),
                     new Book("Роверандом", "Дж. Р. Р. Толкин", 1998, 144),
                     new Book("Граф Монте-Кристо", "Александр Дюма", 2009, 1326),
                     new Book("Марсианин", "Энди Вейер", 2014, 384),
                     new Book("Крылья", "Кристина Старк", 2015, 480)
             )),
-            new Student("Любченко", "Елизавета", "16-АС", Arrays.asList(
+            new Student("Любченко", "Елизавета", Arrays.asList(
                     new Book("Диктатор", "Сергей Снегов", 1996, 764),
                     new Book("Квантовая ночь", "Роберт Сойер", 2016, 390),
                     new Book("Война миров", "Герберт Уэллс", 1897, 256),
                     new Book("Час негодяев", "Александр Афанасьев", 2015, 512),
                     new Book("Преступление и наказание", "Федор Достоевский", 2008, 598)
             )),
-            new Student("Буряк", "Виктор", "14-ПО", Arrays.asList(
+            new Student("Буряк", "Виктор", Arrays.asList(
                     new Book("Граф Монте-Кристо", "Александр Дюма", 2009, 1326),
                     new Book("Преступление и наказание", "Федор Достоевский", 2008, 598),
                     new Book("Роверандом", "Дж. Р. Р. Толкин", 1998, 144),
@@ -48,7 +48,7 @@ void main() {
 
     listOfStudents.stream().peek(System.out::println) // Вывод в консоль
             .flatMap(student -> student.getBooks().stream()) // Получичаем книги
-            .sorted((book1, book2) -> Integer.compare(book1.getPages(), book2.getPages())) // Сортировка по количетсву страниц
+            .sorted(Comparator.comparingInt(Book::getPages)) // Сортировка по количетсву страниц
             .filter(book -> book.getYear() > 2000) // Убираем книги до 2000 года
             .distinct() // Оставляем уникальные значения
             .limit(3) // Ограничиваем стрим

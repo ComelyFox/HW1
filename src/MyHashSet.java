@@ -40,7 +40,7 @@ public class MyHashSet {
             reSize();
         }
         lastNode = newNode;
-    };
+    }
 
     public void remove(int value){
         int index = getIndex(value);

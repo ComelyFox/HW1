@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Collection;
 
 public class MyArrayList<T> {
@@ -9,10 +8,6 @@ public class MyArrayList<T> {
     public MyArrayList(){
         elements = new Object[DEFAULT_SIZE];
         size = 0;
-    }
-    public MyArrayList(int size){
-        elements = new Object[size];
-        size = size;
     }
 
     public void add(T t) {
@@ -50,7 +45,7 @@ public class MyArrayList<T> {
             elements[i] = elements[i+1];
         elements[size] = null;
         size--;
-        return (T) oldValue;
+        return oldValue;
     }
 
     private void resize(int newLength) {

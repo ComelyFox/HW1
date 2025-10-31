@@ -52,19 +52,24 @@ public class Book implements Comparable<Book>{
     }
 
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     public String getAuthor() {
-        return this.author;
+        return author;
     }
 
     public int getYear() {
-        return this.year;
+        return year;
     }
 
     public int getPages() {
-        return this.pages;
+        return pages;
+    }
+
+    @Override
+    public String toString() {
+        return "\nНазвание: \"" + title + "\", Автор: " + author + ", Год издания: " + year + ", Количество страниц: " + pages;
     }
 
     @Override

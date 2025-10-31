@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
     private String lastName; // Фамилия
@@ -6,20 +7,20 @@ public class Student {
     private String eMail;
     private String group;
 
-    private ArrayList<Book> books;
+    private List<Book> books;
 
     public Student (String lastName, String name) {
         this.lastName = lastName;
         this.name = name;
     }
 
-    public Student (String lastName, String name, ArrayList<Book> books) {
+    public Student (String lastName, String name, List<Book> books) {
         this.lastName = lastName;
         this.name = name;
         this.books = books;
     }
 
-    public Student (String lastName, String name, String group, ArrayList<Book> books) {
+    public Student (String lastName, String name, String group, List<Book> books) {
         this.lastName = lastName;
         this.name = name;
         this.group = group;
@@ -46,12 +47,12 @@ public class Student {
         return this.lastName;
     }
 
-    public ArrayList<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public ArrayList<String> getListOfBooks() {
-        ArrayList<String> listOfBooks = new ArrayList<>();
+    public List<String> getListOfBooks() {
+        List<String> listOfBooks = new ArrayList<>();
         for (Book book : this.books) {
             listOfBooks.add(book.getTitle());
         }
@@ -68,6 +69,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return lastName + " " + name;
+        return "\nСтудент: " + lastName + " " + name + "\nСписок книг: " + books;
     }
 }
